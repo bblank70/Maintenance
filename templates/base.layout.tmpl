@@ -1,0 +1,57 @@
+{{define "base"}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>about</title>
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+     integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+      <style>
+      body {
+        padding: 5px;
+        background-color: #324832;
+        color: #C3780b;
+        font-size: 15px;
+      }
+      .dark-mode {
+        background-color: #324832;
+        color: #C3780b;
+      }
+      .light-mode {
+        background-color: white;
+        color: black;
+      }
+    </style>
+
+    {{block "css" .}}
+    {{end}}
+
+</head>
+<body>
+<p style="font-size:120%;" id="DarkModetext">Dark Mode is ON</p>
+    <button onclick="darkMode()">Darkmode</button>
+    <button onclick="lightMode()">LightMode</button>
+    <script>
+      function darkMode() {
+        var element = document.body;
+        var content = document.getElementById("DarkModetext");
+        element.className = "dark-mode";
+        content.innerText = "Dark Mode is ON";
+      }
+      function lightMode() {
+        var element = document.body;
+        var content = document.getElementById("DarkModetext");
+        element.className = "light-mode";
+        content.innerText = "Dark Mode is OFF";
+      }
+    </script>
+    {{block "content" .}}
+    
+    {{end}}
+ {{block "js" .}}
+ {{end}}
+</body>
+</html>
+{{end}}
