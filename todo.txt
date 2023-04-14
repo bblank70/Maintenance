@@ -1,0 +1,1 @@
+consider making the homepage buttons integral to the NavBar, dropdown inside of maintain for the equipment form

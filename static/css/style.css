@@ -4,6 +4,10 @@ body{
     height: 100%;
     font-size: 110%;
 }
+
+label {
+    font-size: 120%;
+}
 p {
     font-size: 110%;
     padding-top: 0;

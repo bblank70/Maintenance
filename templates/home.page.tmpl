@@ -1,22 +1,47 @@
 {{template "base" .}}
 
 {{define "content"}}
+
+
 <div class="container">
-    <div class="row">
-        <div class="col">
-            <h1>Maintenence Homepage</h1>  
-            <h2>Select either: </h2>
-             <p style="font-size:180%;"> Add a new piece of Equipment
-            </p>
-            <p style="font-size:180%;"> -or-
-            </p>
-            <p style="font-size:180%;"> Enter a Equipment ID To reach a maintaence form
-            </p>
+            <div id="heading">
+                    <h3> Maintanence Application</h3>
+            </div>
+ 
+            <div class="row">
+                    <div class="col">
+                        <p><strong> Stage: </strong>  </p>
+                        <button type="button" class="btn btn-info"
+                             style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem;--bs-btn-font-size: .10rem;"> Stage
+                        </button>
+                    </div>
+                    <div class="col">
+                        <p> <strong> Maintain:  </strong> </p>
+                        <a href="/pump-form" class="btn btn-info"
+                            style="--bs-btn-padding-y: .50rem; --bs-btn-padding-x: 0.50rem; --bs-btn-font-size: .10rem;"> Maintain </a>
+                       </button>
+                    </div>
+                    <div class="col">
+                        <p> <strong> Store as Repaired:   </strong> </p>
+                        <button type="button" class="btn btn-info"
+                        style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .10rem;"> Repaired
+                        </button>
+
+                    </div>
+                    <div class="col">
+                        <p> <strong>   Install on Plant: </strong></p>
+                        <button type="button" class="btn btn-info"
+                        style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .10rem;"> Install
+                   </button>
+                    </div>
+
+            </div>
             
-          
+
         </div>
         
         
     </div>
 </div>
+</bondy>
 {{end}}

@@ -43,3 +43,8 @@ func (m *Repository) About(w http.ResponseWriter, r *http.Request) {
 		StringMap: strmap,
 	})
 }
+
+// Pump renders the Pump-form page
+func (m *Repository) Pump(w http.ResponseWriter, r *http.Request) {
+	render.RenderTemplate(w, "pump-form.page.tmpl", &models.TemplateData{})
+}
