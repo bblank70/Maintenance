@@ -9,5 +9,5 @@ External Dependencies:
 * github.com/justinas/nosurf v1.1.1
 
 Leverages CDN links for:
-*Bootstrap v5.3: [https://getbootstrap.com/docs/5.3/getting-started/introduction/](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
-*SweetAlert2 [JS]:  [https://sweetalert2.github.io/](https://sweetalert2.github.io/)
+* Bootstrap v5.3: [https://getbootstrap.com/docs/5.3/getting-started/introduction/](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
+* SweetAlert2 [JS]:  [https://sweetalert2.github.io/](https://sweetalert2.github.io/)
