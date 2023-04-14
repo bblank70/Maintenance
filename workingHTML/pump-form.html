@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title> PumpForm </title>
+    <link rel="icon" type="images/x-icon" href=./static/images/wrench.png />
+    <link rel="stylesheet" type="text/css" href=./static/css/style.css />
+  </head>
+
+  <body>
+    <nav class="navbar" style="background-color: rgb(62, 82, 91);">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="./static/images/logo.png" alt="Bootstrap" width="30" height="40">
+            </a>
+            <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button> -->
+            <div class="navbar navbar-expand" id="navbarScroll">
+                <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About</a>
+                </li>
+
+
+                </ul>
+                <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="EquipmentID" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Query</button>
+                </form>
+            </div>
+            </div>
+    </nav>
+
+    <div class="equipmentHeader">
+      <h2>Pump Maintanence Form</h2>
+    </div>
+    <hr> <!--horizonal break-->
+    <div class="container-fluid">
+    <strong>Please enter the following information:</strong>
+    <br>
+    <br>
+    <form action= "" method = "POST">   <!--This will post the data to the webserver when it's running (localhost)-->
+      <div class="form-row">
+        <div class="col-sm-3">
+          <p> <label>Today's Date:</label> 
+          <input
+          class="form-control"
+          type="date"
+          name="MaintanenceDate"
+          min="2023-01-01"
+          max="2050-12-31"
+          required />
+          <span class="validity"></span>
+          </p>
+        </div>
+        <div class="col-sm-3">
+          <p> <label> EquipmentID:</label>
+          <input
+          type="string"
+          class="form-control"
+          name="EquipmentID"
+          required />	
+           </p>
+        </div>
+        <div class="col-sm-3">
+          <p> <label> Who are you?: </label> 
+          <input
+          type="string"
+          class="form-control"
+          name="Person"
+          required />
+          </p>
+        </div>
+      </div>
+
+      <fieldset>
+        <legend>Select One or more of the following routine activities if performed:</legend>   
+        <div class="form-row">
+          <div class="col"">
+            <div class="form-check">
+                <input class= "form-check-input" type="checkbox" id="Routine1" name="PumpRoutine1">
+                <label for="Routine1">Cleaned Check Valves</label> 
+              </div> 
+          </div>
+          <div class="col">
+            <div class="form-check">
+              <input class= "form-check-input" type="checkbox" id="Routine2" name="PumpRoutine2">
+              <label for="Routine2">Replaced Seals</label> 
+            </div> 
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="col">
+            <div class="form-check">
+              <input class= "form-check-input" type="checkbox" id="Routine3" name="PumpRoutine3">
+              <label for="Routine3">Cleaned Pump Head and Piston</label> 
+            </div> 
+          </div>
+          <div class="col">
+            <div class="form-check">
+              <input class= "form-check-input" type="checkbox" id="Routine1" name="PumpRoutine1">
+              <label for="Routine1">New Check Valves</label> 
+            </div> 
+          </div>
+        </div>
+      </fieldset>
+
+    <br>
+
+    <p><strong>Enter the following Required Fields:</strong></p>
+    <div class="form-row">
+      <div class="col-sm-2">
+        <div class= "input-group mb-4">
+          <label> Time Required:</label> 
+            <input
+            class="form-control"
+            type="string"
+            name="PumpField1"
+            required />
+            <span class="input-group-text" id="basic-addon2">Hrs. (1.5)</span>
+          </div>
+ 
+      </div>
+      <div class="col-sm-2">
+        <div class= "input-group mb-4">
+        <label> New Efficiency:</label> 
+          <input
+          class="form-control"
+          type="string"
+          name="PumpField2"
+          required />
+          <span class="input-group-text" id="basic-addon2">%</span>
+        </div>
+        
+      </div>
+    </div>
+
+    <br>
+
+    <p><strong>Maintanence Notes:</strong></p>
+    <div class= "col-lg-10">
+      <textarea class="form-control" id="Notes" name=PumpNotes rows="4" required data-mdb-show-counter="true" maxlength="700"></textarea>
+      <label class="form-label" for="textAreaExample5">Please enter a brief summary of symptoms and any extraneous notes</label>
+      </div>
+    
+    <br>
+    <div class="container">
+      <br>
+      <button type="button" id="submitButton" class="btn btn-success">Submit</button>
+      <br>
+    </div>
+
+
+    </form>
+ <!--remove this chunk)-->
+    <!-- <div class="row">
+      <div class="col">
+          <p id="myParagraph">This is some text.</p>
+          <p>
+              <button id="colorButton" class="btn btn-outline-secondary">Click me</button>
+          </p>
+      </div>
+  </div>
+  </div> -->
+ <!--remove this chunk-->
+  </body>
+
+
+  <div class="my-footer">  
+    <div class="container">
+      <div class="row">
+          <div class="col">  <a href = "https://virent.com" >VIRENT WEBSITE</a>  <!-- this is a link formating-->
+          </div> 
+          <div class="col">  <a href ="https://virent.sharepoint.com/sites/vnet/SitePages/home.aspx" >VNet</a>
+          </div>
+          <div class="col">  <a href ="index.html" >VCS</a>
+          </div>
+      </div> 
+    </div>
+  </div>
+
+       
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <script>
+
+    let attention = Prompt();
+
+    document.getElementById("submitButton").addEventListener("click", function(){
+     //notifyModal("Submitted", "<em>You have successfully submitted the form!</em>", "success", "Done");
+     attention.success({msg: "Successfully Submitted"});
+})
+
+    // function notifyModal(title,text,icon, confirmationButtonText){  //this is an archived example
+    //   Swal.fire({
+    //       title: title,
+    //       html: text,
+    //       icon: icon,
+    //       confirmButtonText: confirmationButtonText
+    //     })
+    // }
+    function Prompt() {
+      let toast = function(c){
+        const {
+          msg ="",
+          icon="success",
+          position="center",
+        }=c;
+
+        const Toast = Swal.mixin({
+          toast: true,
+          title: msg,
+          position: position,
+          icon: icon,
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+          }
+        })
+
+        Toast.fire({})
+      }
+      
+      let success = function(c){
+        const{
+          msg = "",
+          title = "",
+          footer = "",
+        }=c;
+
+        Swal.fire({
+        icon: 'success',
+        title: title,
+        text: msg,
+        footer: footer,
+       })
+      }
+
+      let error = function(c){
+        const{
+          msg = "",
+          title = "",
+          footer = "",
+        }=c;
+
+        Swal.fire({
+        icon: 'error',
+        title: title,
+        text: msg,
+        footer: footer,
+       })
+      }
+
+      return { 
+      toast: toast,
+      success: success,
+      error: error,
+      }
+   
+    }
+
+  </script>
+
+ <!-- <script> 
+ // let myEl = document.getElementById("myParagraph");
+ // myEl.classList.add("redText");
+ // </script> -->
+
+</html>
