@@ -33,6 +33,7 @@ color: rgb(148, 176, 49);
     text-align: center
 }    
 .my-footer{
+    font-size: 120%;
     position: fixed;
     left: 0;
     bottom: 0;
@@ -45,4 +46,13 @@ div#heading{
     padding: 5eM;
     margin: auto;
     text-align: center;
+}
+
+nav{
+    font-size: 140%;
+    
+}
+.navbar-nav > li{
+margin-left:3eM;
+margin-right:3eM;
 }

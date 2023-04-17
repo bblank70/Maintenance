@@ -1,17 +1,31 @@
 {{template "base" .}}
 
 {{define "content"}}
-<div class="container">
-                <div class="row">
-                    <div class="col">
-                        <h1>Maintenence Web Application</h1>  
-                        <p style="font-size:120%;"> This Application was developed by Brian Blank 2023 
-               
-                    </div>
-                    
-                    
-                </div>
-            </div>
+
+<div class="row justify-content-center align-items-center" id = homepageTitle>
+    <div class="row">
+    Maintanence Application</div>
+    </div>
+    <div class="row justify-content-center align-items-bottom" id = homepageSubtitle>
+        <div class="row">
+        Developed by Brian Blank 2023</div>
+        </div>
+    
+
+
+<style>
+   #homepageTitle{
+ height: 60vh;
+ font-size: 300%;
+   }
+   #homepageSubtitle{
+font-size: 150%;
+   }
+</style>
+
+                                    
+                            
+                            
 
  </body> 
 {{end}}
