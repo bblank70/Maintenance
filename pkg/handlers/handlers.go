@@ -48,3 +48,7 @@ func (m *Repository) About(w http.ResponseWriter, r *http.Request) {
 func (m *Repository) Pump(w http.ResponseWriter, r *http.Request) {
 	render.RenderTemplate(w, "pump-form.page.tmpl", &models.TemplateData{})
 }
+
+func (m *Repository) Stage(w http.ResponseWriter, r *http.Request) {
+	render.RenderTemplate(w, "Stage.page.tmpl", &models.TemplateData{})
+}
