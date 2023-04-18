@@ -1,4 +1,4 @@
-# Bookings and Reservations appication
+# Equipment Maintanence Web Application
 
 derived from udemy course by tsawler
 * Built in Go v1.19.4
