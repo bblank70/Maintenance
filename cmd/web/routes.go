@@ -23,6 +23,8 @@ func routes(app *config.AppConfig) http.Handler {
 	//forms
 	mux.Get("/pump-form", handlers.Repo.Pump)
 	mux.Post("/pump-form", handlers.Repo.PostPump)
+	mux.Get("/pump-form-json", handlers.Repo.PumpJSON)
+
 	mux.Get("/stage", handlers.Repo.Stage)
 	mux.Get("/repaired", handlers.Repo.Repaired)
 

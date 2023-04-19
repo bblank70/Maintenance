@@ -1,7 +1,9 @@
 package handlers
 
 import (
+	"encoding/json"
 	"fmt"
+	"log"
 	"net/http"
 
 	"github.com/bblank70/bookings/models"
@@ -52,7 +54,6 @@ func (m *Repository) Pump(w http.ResponseWriter, r *http.Request) {
 
 // PostPump writes to the pump form
 func (m *Repository) PostPump(w http.ResponseWriter, r *http.Request) {
-
 	maintanenceDate := r.Form.Get("MaintanenceDate")
 	person := r.Form.Get("Person")
 	equipmentID := r.Form.Get("EquipmentID")
@@ -67,6 +68,41 @@ func (m *Repository) PostPump(w http.ResponseWriter, r *http.Request) {
 		replacedSeals, pumpHeadPiston, checkValveReplaced, timeRequired,
 		newEfficiency, pumpNotes)
 	w.Write([]byte(printstr))
+}
+
+type jsonResponse struct {
+	MaintanenceDate     string  `json:maintanenceDate`
+	Person              string  `json:person`
+	EquipmentID         string  `json:equipmentID`
+	CheckValveCleaned   bool    `json:checkValveCleaned`
+	ReplacedSeals       bool    `json:replacedSeals`
+	PumpHeadPiston      bool    `json:pumpHeadPiston`
+	CheckValvesReplaced bool    `json:checkvalvesreplaced`
+	TimeRequired        float64 `json:timeRequired`
+	NewEfficiency       float64 `json:newEfficiency`
+	PumpNotes           string  `json:pumpNotes`
+}
+
+func (m *Repository) PumpJSON(w http.ResponseWriter, r *http.Request) {
+	resp := jsonResponse{
+		MaintanenceDate:     "testdate",
+		Person:              "Mark",
+		EquipmentID:         "PMPO100",
+		CheckValveCleaned:   true,
+		ReplacedSeals:       true,
+		PumpHeadPiston:      true,
+		CheckValvesReplaced: true,
+		TimeRequired:        1.7,
+		NewEfficiency:       85.3,
+		PumpNotes:           "This is a dumb note",
+	}
+	out, err := json.MarshalIndent(resp, "", "  ")
+	if err != nil {
+		log.Println(err)
+	}
+	log.Println(string(out))
+	w.Header().Set("Content-Type", "application/json")
+	w.Write(out)
 }
 
 func (m *Repository) Stage(w http.ResponseWriter, r *http.Request) {
