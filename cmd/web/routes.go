@@ -3,8 +3,8 @@ package main
 import (
 	"net/http"
 
-	"github.com/bblank70/bookings/pkg/config"
-	"github.com/bblank70/bookings/pkg/handlers"
+	"github.com/bblank70/bookings/internal/config"
+	"github.com/bblank70/bookings/internal/handlers"
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
 )
@@ -22,8 +22,9 @@ func routes(app *config.AppConfig) http.Handler {
 
 	//forms
 	mux.Get("/pump-form", handlers.Repo.Pump)
-	mux.Post("/pump-form", handlers.Repo.PostPump)
+	//mux.Post("/pump-form", handlers.Repo.PostPump)
 	mux.Get("/pump-form-json", handlers.Repo.PumpJSON)
+	mux.Post("/pump-form", handlers.Repo.PostPump) //handles posts from form
 
 	mux.Get("/stage", handlers.Repo.Stage)
 	mux.Get("/repaired", handlers.Repo.Repaired)

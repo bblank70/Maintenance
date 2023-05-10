@@ -10,6 +10,7 @@
 <hr>
 
 <form action= "" method = "POST">   <!--This will post the data to the webserver when it's running (localhost)-->
+    <input type="hidden" name="csrf_token" value= "{{.CSRFToken}}" >
     <div class="container-fluid">
         <div class="form-row">
             <div class="col-sm-3">
