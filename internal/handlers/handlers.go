@@ -117,4 +117,34 @@ func (m *Repository) Pump(w http.ResponseWriter, r *http.Request) {
 
 // PostPump handles the posting of pump form
 func (m *Repository) PostPump(w http.ResponseWriter, r *http.Request) {
+	err := r.ParseForm()
+	if err != nil {
+		log.Println(err)
+		return
+	}
+	pump := models.Pump{
+		EquipmentID:         r.Form.Get("EquipmentID"),
+		Person:              r.Form.Get("Person"),
+		CheckValveCleaned:   r.Form.Get("CheckValveCleaned"),
+		SealsReplaced:       r.Form.Get("SealsReplaced"),
+		PumpHeadPiston:      r.Form.Get("PumpHeadPiston"),
+		CheckValvesReplaced: r.Form.Get("CheckValvesReplaced"),
+		TimeRequired:        r.Form.Get("TimeRequired"),
+		MeasuredEfficiency:  r.Form.Get("MeasuredEfficiency"),
+		MaintanenceDate:     r.Form.Get("MaintanenceDate"),
+	}
+	form := forms.New(r.PostForm)
+
+	form.Has("EquipmentID", r)
+
+	// will reload form with data if the data is incomplete.
+	if !form.Valid() {
+		data := make(map[string]interface{})
+		data["pump"] = pump
+		render.RenderTemplate(w, r, "pump-form.page.tmpl", &models.TemplateData{
+			Form: form,
+			Data: data,
+		})
+		return
+	}
 }

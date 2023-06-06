@@ -15,9 +15,13 @@
       <div class="form-row">
         <div class="col-sm-3">
           <p> <label>Today's Date:</label> 
+            {{with .Form.Errors.Get "MaintanenceDate"}}
+              <label class="text-danger"> {{.}}</label>
+            {{end}}
           <input
-          class="form-control"
+          class="form-control {{with .Form.Errors.Get "MaintanenceDate" }} is-invalid {{end}}"
           type="date"
+          id="MaintanenceDate"
           name="MaintanenceDate"
           min="2023-01-01"
           max="2050-12-31"
@@ -27,19 +31,25 @@
         </div>
         <div class="col-sm-3">
           <p> <label> EquipmentID:</label>
-          <input
+            {{with .Form.Errors.Get "EquipmentID"}}
+              <label class="text-danger"> {{.}}</label>
+            {{end}}
+          <input 
           type="string"
-          class="form-control"
+          class="form-control {{with .Form.Errors.Get "EquipmentID" }} is-invalid {{end}}"
           id="EquipmentID"
           name="EquipmentID"
-          required />	
+           />	
            </p>
         </div>
         <div class="col-sm-3">
-          <p> <label> Who are you?: </label> 
+          <p> <label> Who are you?: </label>
+            {{with .Form.Errors.Get "Person"}}
+            <label class="text-danger"> {{.}}</label>
+          {{end}} 
           <input
           type="string"
-          class="form-control"
+          class="form-control {{with .Form.Errors.Get "Person" }} is-invalid {{end}}"
           id="Person"
           name="Person"
           required />
@@ -85,9 +95,12 @@
     <div class="form-row">
       <div class="col-sm-3">
         <div class= "input-group mb-4">
-          <label> Time Required:</label> 
+          <label> Time Required:</label>
+          {{with .Form.Errors.Get "TimeRequired"}}
+          <label class="text-danger"> {{.}}</label>
+        {{end}} 
             <input
-            class="form-control"
+            class="form-control {{with .Form.Errors.Get "TimeRequired"}} is-invalid {{end}}"
             type="string"
             name="TimeRequired"
             id="TimeRequired"
@@ -98,9 +111,12 @@
       </div>
       <div class="col-sm-3">
         <div class= "input-group mb-4">
-        <label> New Efficiency:</label> 
+        <label> New Efficiency:</label>
+        {{with .Form.Errors.Get "MeasuredEfficiency"}}
+          <label class="text-danger"> {{.}}</label>
+        {{end}} 
           <input
-          class="form-control"
+          class="form-control {{with .Form.Errors.Get "TimeRequired"}} is-invalid {{end}}"
           type="string"
           name="MeasuredEfficiency"
           id="MeasuredEfficiency"
@@ -115,7 +131,7 @@
 
     <p><strong>Maintanence Notes:</strong></p>
     <div class= "col-lg-10">
-      <textarea class="form-control" id="PumpNotes" name=PumpNotes rows="4" required data-mdb-show-counter="true" maxlength="700"></textarea>
+      <textarea class="form-control" id="PumpNotes" name=PumpNotes rows="4"  maxlength="700"></textarea>
       <label class="form-label" for="textAreaExample5">Please enter a brief summary of symptoms and any extraneous notes</label>
       </div>
     
